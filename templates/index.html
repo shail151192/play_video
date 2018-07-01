@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>You Tube</title>
+    <meta charset="UTF-8">
+</head>
+
+<body style>
+    <div id="navbar">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid" style="background: #26943d;">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#" style="color:white;">Juggernaut</a>
+
+            </div>
+              <div class="" style="float:right; margin-top: 10px;">
+                  {% if not request.user or not request.user.is_authenticated %}
+                  <span style="color:white;">Want to contribute:&nbsp;<a class="" href="/users/login">Login</a></span>
+                  &nbsp;&nbsp;
+                  <a class="" href="/users/signup">Signup</a>
+                  {% endif %}
+                  {% if request.user and request.user.is_authenticated %}
+                  <span style="color:white;">Welcome:&nbsp;{{request.user.username}}</span>
+                  &nbsp;&nbsp;&nbsp;
+                      <a href="/users/logout/">Logout</a>
+                  {% endif %}
+              </div>
+          </div>
+        </nav>
+    </div>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="col-md-4 col-md-offset-4">
+        <form class="form" action="users/login/" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Login</button>
+            <button type="button" class="btn btn-red">Back</button>
+        </form>
+    </div>
+{% endblock %}

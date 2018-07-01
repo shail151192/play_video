@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+{% block content %}
+
+    <h1>Enjoy Videos</h1>
+    <div class="">
+    {% for v in data %}
+        <div class="col-md-3 itemsContainer">
+            <div class="image">
+                <a href="/home/play/{{v.id}}" target="_blank"><img src="{% static v.thumbnail %}"></a></img>
+            </div>
+            <div class="play"><img src="http://cdn1.iconfinder.com/data/icons/flavour/button_play_blue.png" /> </div>
+            <p>{{v.name }}</p>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+    <style>
+    itemsContainer {
+    background:red;
+    float:left;
+    position:relative
+}
+.itemsContainer:hover .play{display:block}
+.play{
+  position : absolute;
+    display:none;
+    top:20%;
+    width:40px;
+    margin:0 auto; left:0px;
+    right:0px;
+    z-index:100;
+    cursor:pointer;
+}
+</style>
+{% endblock %}
+
+

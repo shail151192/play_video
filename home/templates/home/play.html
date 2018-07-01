@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+{% block content %}
+    <div class="">
+        <video name='demo' controls autoplay width='100%' height='100%' controls>
+            <source src={% static v.video %} type="video/mp4"></source>
+        </video>
+    </div>
+</div>
+{% endblock %}
+
